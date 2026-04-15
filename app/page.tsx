@@ -28,7 +28,7 @@ export default async function Index() {
                 className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
               >
                 <p className="text-xl text-gray-700 italic mb-4">
-                  「{quote.text}」
+                  「{quote.content}」
                 </p>
                 <p className="text-right text-gray-500 font-medium">
                   — {quote.author}
