@@ -28,8 +28,8 @@ export default async function Page() {
     <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-slate-50">
       <div className="max-w-2xl w-full space-y-8">
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-extrabold text-slate-900">松陰の魂</h1>
-          <p className="mt-2 text-slate-600">今のあなたへ、吉田松陰からの導き</p>
+          <h1 className="text-3xl font-extrabold text-slate-900">偉人からの伝言</h1>
+          <p className="mt-2 text-slate-600">がんばっているあなたへ贈る言葉</p>
         </div>
 
         <div className="grid gap-6">
