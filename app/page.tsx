@@ -35,7 +35,7 @@ export default async function Page() {
       <div className="max-w-2xl w-full space-y-8">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-extrabold text-slate-900">偉人からの伝言</h1>
-          <p className="mt-2 text-slate-600">未来を作りたいあなたが読んだらタメになる言葉</p>
+          <p className="mt-2 text-slate-600">未来を作りたいあなたにとって気づきになる言葉</p>
         </div>
 
         <div className="grid gap-6">
