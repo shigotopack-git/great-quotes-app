@@ -19,17 +19,23 @@ export default async function Page() {
     );
   }
 
-  // ランダムに3件抽出
-  const displayQuotes = [...quotes]
+// 1. 全データから著者（author）を重複なく取り出し、シャッフルして3名選ぶ
+  const selectedAuthors = Array.from(new Set(quotes.map(q => q.author)))
     .sort(() => Math.random() - 0.5)
     .slice(0, 3);
+
+  // 2. 選ばれた3名それぞれから、ランダムに1つずつ名言を抽出する
+  const displayQuotes = selectedAuthors.map(authorName => {
+    const authorQuotes = quotes.filter(q => q.author === authorName);
+    return authorQuotes[Math.floor(Math.random() * authorQuotes.length)];
+  });
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-slate-50">
       <div className="max-w-2xl w-full space-y-8">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-extrabold text-slate-900">偉人からの伝言</h1>
-          <p className="mt-2 text-slate-600">がんばっているあなたへ贈る言葉</p>
+          <p className="mt-2 text-slate-600">未来を作りたいあなたが読んだらタメになる言葉</p>
         </div>
 
         <div className="grid gap-6">
