@@ -1,4 +1,4 @@
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from '../utils/supabase/server';
 
 // 常に最新の3件を取得するための設定
 export const revalidate = 0;
