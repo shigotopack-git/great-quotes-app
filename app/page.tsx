@@ -1,12 +1,12 @@
-import { createClient } from '../utils/supabase/server';
+import { createClient } from '@/utils/supabase/server';
 
-// 常に最新の3件を取得するための設定
 export const revalidate = 0;
 
 export default async function Page() {
-  const supabase = createClient();
+  // 【重要】ここで await を入れることで、supabaseクライアントが準備できるのを待ちます
+  const supabase = await createClient();
 
-  // Supabaseからデータを取得
+  // データを取得
   const { data: quotes, error } = await supabase
     .from('quotes')
     .select('*');
@@ -14,7 +14,7 @@ export default async function Page() {
   if (error || !quotes) {
     return (
       <div className="flex min-h-screen items-center justify-center p-4">
-        <p className="text-red-500 font-bold">データの取得に失敗しました。環境変数やテーブル名を確認してください。</p>
+        <p className="text-red-500 font-bold">データの取得に失敗しました。</p>
       </div>
     );
   }
@@ -49,7 +49,6 @@ export default async function Page() {
         </div>
 
         <div className="text-center mt-12">
-          {/* onClickを使わず、aタグで自分自身のURLに飛ばすことでリロードを実現 */}
           <a 
             href="/"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition-colors"
